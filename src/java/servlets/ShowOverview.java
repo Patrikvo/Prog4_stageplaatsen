@@ -5,12 +5,17 @@
  */
 package servlets;
 
+import Beans.DatabaseFacadeEJB;
+import DAL.Stageplaats;
 import java.io.IOException;
+import java.util.List;
+import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -27,9 +32,18 @@ public class ShowOverview extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+    @EJB
+    DatabaseFacadeEJB DBFacadeEJB;
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        
+        List<Stageplaats> allStageplaatsen = DBFacadeEJB.getAllStageplaatsen();
+        
+        HttpSession session = request.getSession();
+        session.setAttribute("stageplaatsen", allStageplaatsen);
+        
         RequestDispatcher rd = request.getRequestDispatcher("/JSP/OverviewPage.jsp");
         rd.forward(request, response);
         

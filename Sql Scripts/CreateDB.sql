@@ -70,7 +70,7 @@ CREATE TABLE Student (
 
 
 CREATE TABLE Specialisatie (
-    ID int(10) NOT NULL AUTO_INCREMENT, 
+    ID int(10) NOT NULL, 
     Beschrijving varchar(255) NOT NULL, 
     PRIMARY KEY (ID), UNIQUE INDEX (ID)
 );
@@ -79,7 +79,7 @@ CREATE TABLE Specialisatie (
 
 
 CREATE TABLE Situeert (
-    ID int(10) NOT NULL AUTO_INCREMENT, 
+    ID int(10) NOT NULL, 
     Beschrijving varchar(255) NOT NULL, 
     SpecialisatieID int(10) NOT NULL, 
     PRIMARY KEY (ID), UNIQUE INDEX (ID),
@@ -126,5 +126,20 @@ CREATE TABLE Student_Stageplaats (
     FOREIGN KEY (StageplaatsID) REFERENCES Stageplaats(ID)
 );
 
+
+
+INSERT INTO Specialisatie(ID, Beschrijving) VALUES (0, "Ongedefineerd");
+INSERT INTO Specialisatie(ID, Beschrijving) VALUES (1, "Systeem- en netwerkbeheer");
+INSERT INTO Specialisatie(ID, Beschrijving) VALUES (2, "Programmeren");
+
+
+INSERT INTO Situeert(ID, Beschrijving, SpecialisatieID) VALUES (0, "Ongedefineerd", 0);
+
+INSERT INTO Situeert(ID, Beschrijving, SpecialisatieID) VALUES (1, "Netwerk infrastructuur", 1);
+INSERT INTO Situeert(ID, Beschrijving, SpecialisatieID) VALUES (2, "Service Desk ( op niveau van client-server omgeving)", 1);
+INSERT INTO Situeert(ID, Beschrijving, SpecialisatieID) VALUES (3, "Praktisch Onderzoeksproject (testomgeving beschikbaar gesteld door stageplaats :Proof of concern)", 1);
+
+INSERT INTO Situeert(ID, Beschrijving, SpecialisatieID) VALUES (4, "Functionele en technische analyse", 2);
+INSERT INTO Situeert(ID, Beschrijving, SpecialisatieID) VALUES (5, "Software development en testing", 2);
 
 

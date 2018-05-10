@@ -4,6 +4,8 @@
     Author     : TL55058
 --%>
 
+ <%@page import="DAL.Stageplaats" %>
+ <%@page import="java.util.List" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,5 +15,17 @@
     </head>
     <body>
         <h1>Hello World!</h1>
+        <ul>
+        <% 
+            List<Stageplaats> lijstStageplaatsen = (List<Stageplaats>)session.getAttribute("stageplaatsen");
+            
+            for(Stageplaats sp : lijstStageplaatsen){
+            String title = sp.getTitel();
+        %>
+            <li> <%= title%> </li>
+        <%
+            }  
+        %>    
+        </ul>
     </body>
 </html>
