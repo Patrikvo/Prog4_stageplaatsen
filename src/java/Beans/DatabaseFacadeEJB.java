@@ -29,5 +29,14 @@ public class DatabaseFacadeEJB {
         
     }
     
+    public Stageplaats getStageplaats(int id){
+        Query stageplaatsQuery = em.createNamedQuery("Stageplaats.findById");
+        stageplaatsQuery.setParameter("id", id);
+        Stageplaats stageplaats = (Stageplaats)stageplaatsQuery.getSingleResult();
+        
+        return stageplaats;
+    }
+    
+    
     
 }
