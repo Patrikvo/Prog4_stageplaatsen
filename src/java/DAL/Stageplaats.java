@@ -47,7 +47,10 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Stageplaats.findByExtraKennisVereist", query = "SELECT s FROM Stageplaats s WHERE s.extraKennisVereist = :extraKennisVereist")
     , @NamedQuery(name = "Stageplaats.findByVoorzieningen", query = "SELECT s FROM Stageplaats s WHERE s.voorzieningen = :voorzieningen")
     , @NamedQuery(name = "Stageplaats.findByAanmaakDatum", query = "SELECT s FROM Stageplaats s WHERE s.aanmaakDatum = :aanmaakDatum")
-    , @NamedQuery(name = "Stageplaats.findByLaatsteWijziging", query = "SELECT s FROM Stageplaats s WHERE s.laatsteWijziging = :laatsteWijziging")})
+    , @NamedQuery(name = "Stageplaats.findByLaatsteWijziging", query = "SELECT s FROM Stageplaats s WHERE s.laatsteWijziging = :laatsteWijziging")
+        
+    , @NamedQuery(name = "Stageplaats.findLikeTitel", query = "SELECT s FROM Stageplaats s WHERE s.titel LIKE :titel")
+})
 public class Stageplaats implements Serializable {
 
     private static final long serialVersionUID = 1L;

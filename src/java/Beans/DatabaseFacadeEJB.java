@@ -37,6 +37,28 @@ public class DatabaseFacadeEJB {
         return stageplaats;
     }
     
+    // TitleSearch, OmschrijvingSearch, BedrijfnaamSearch, StadSearch
+    public List<Stageplaats> performSearch(String titelPart, String omschrijvingPart, String bedrijfsnaamPart, String stadPart) {
+        String wildcard = "%";
+        
+        String sql = "SELECT x FROM Stageplaats x WHERE x.titel LIKE '%" + titelPart +
+                "%' AND x.omschrijving LIKE '%" + omschrijvingPart +
+                "%' AND x.bedrijfID.naam LIKE '%" + bedrijfsnaamPart + 
+                "%' AND x.bedrijfID.adresID.stad LIKE '%" + stadPart + "%'";
+        Query stageplaatsenQuery = em.createQuery(sql);
+        
+     /*   stageplaatsenQuery.setParameter("titelPart", wildcard + titelPart + wildcard)
+                .setParameter("omschrijvingPart", wildcard + omschrijvingPart + wildcard)
+                .setParameter("bedrijfsnaamPart", wildcard + bedrijfsnaamPart + wildcard)
+                .setParameter("stadPart", wildcard + stadPart + wildcard);
+*/
+
+        
+        List<Stageplaats> resultList = stageplaatsenQuery.getResultList();
+
+        return resultList;
+    }
+    
     
     
 }

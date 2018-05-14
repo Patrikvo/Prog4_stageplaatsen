@@ -37,7 +37,7 @@
             
             
             
-            String bedrijfsnaam = stageplaats.getBedrijfID().getContactNaam();
+            String bedrijfsnaam = stageplaats.getBedrijfID().getNaam();
             String adres = stageplaats.getBedrijfID().getAdresID().getStraat() + " " +
                   stageplaats.getBedrijfID().getAdresID().getNummer() + " " +
                     stageplaats.getBedrijfID().getAdresID().getPostcode() + " " +
