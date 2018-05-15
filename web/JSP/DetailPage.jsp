@@ -11,13 +11,26 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="CSS/Style.css">
         <title>JSP Page</title>
     </head>
     <body>
-        <form name="ShowOverview" action="/Stageplaatsen/ShowOverview">
-            <input type="submit" value="Terug naar Overzicht" name="ShowOverviewButton" />
-        </form>
-        <h1>Detail Pagina</h1>
+        <div class="header">
+            <nav class="buttonRow">
+                <form name="ShowOverview" action="/Stageplaatsen/ShowOverview">
+                    <input type="submit" value="Terug naar Overzicht" id="searchButton" name="ShowOverviewButton" />
+                </form>
+                <div id="logo">Stageplaatsen</div>
+                <form name="ShowLogin" action="/Stageplaatsen/ShowLogin">
+                    <input type="submit" value="Login" id="logingButton" name="ShowLoginButton" />
+                </form>
+            </nav>
+            <hr>
+        </div> 
+
+        
+
+        <div id="pageTitle">Detail Pagina</div>
         <% 
             Stageplaats stageplaats = (Stageplaats)session.getAttribute("stageplaats");
             
@@ -53,30 +66,78 @@
             
         %>
         
-        <H2>Stageplaats</H2>
-        <ul>
-            <li><B>Titel: <%= titel%> </B></li>
-            <li>Omschrijving: <%= omschrijving%> </li>
-            <li>Aantal plaatsen: <%= plaatsen%> </li>
-            <li>Periode: <%= periode%> </li>
-            <li>Begeleiding: <%= begeleiding%> </li>
-            <li>Extra kennis vereist: <%= extraKennis %> </li>
-            <li>Voorzieningen: <%= Voorzieningen %> </li>
-            <li>Specialisatie: <%= specialisatie %> </li>
-            <li>Situeert zich in: <%= situeert %></li>
-            <li>Aangemaakt op <%= aanmaakdatum %> </li>
-            <li>Laatst gewijziged op <%= laatsteWijzigingen %></li>
-        </ul>
+        <div class = "detailPageSubTitle">Stageplaats</DIV>
+        <table class = "detailPageTable">
+            <tr class = "detailPageTableRow">
+                <td class = "detailPageTableTitleCell">Titel:</td>
+                <td class = "detailPageTableDataCell"><%= titel%></td>
+            </tr>
+            <tr class = "detailPageTableRow">
+                <td class = "detailPageTableTitleCell">Omschrijving:</td>
+                <td class = "detailPageTableDataCell"><%= omschrijving%></td>
+            </tr>
+            <tr class = "detailPageTableRow">
+                <td class = "detailPageTableTitleCell">Aantal plaatsen:</td>
+                <td class = "detailPageTableDataCell"><%= plaatsen%></td>
+            </tr>
+            <tr class = "detailPageTableRow">
+                <td class = "detailPageTableTitleCell">Periode:</td>
+                <td class = "detailPageTableDataCell"><%= periode%></td>
+            </tr>
+            <tr class = "detailPageTableRow">
+                <td class = "detailPageTableTitleCell">Begeleiding:</td>
+                <td class = "detailPageTableDataCell"><%= begeleiding%></td>
+            </tr>
+            <tr class = "detailPageTableRow">
+                <td class = "detailPageTableTitleCell">Extra kennis vereist:</td>
+                <td class = "detailPageTableDataCell"><%= extraKennis %></td>
+            </tr>
+            <tr class = "detailPageTableRow">
+                <td class = "detailPageTableTitleCell">Voorzieningen:</td>
+                <td class = "detailPageTableDataCell"><%= Voorzieningen %></td>
+            </tr>
+            <tr class = "detailPageTableRow">
+                <td class = "detailPageTableTitleCell">Specialisatie:</td>
+                <td class = "detailPageTableDataCell"><%= specialisatie %></td>
+            </tr>
+            <tr class = "detailPageTableRow">
+                <td class = "detailPageTableTitleCell">Situeert zich in:</td>
+                <td class = "detailPageTableDataCell"><%= situeert%></td>
+            </tr>            
+            <tr class = "detailPageTableRow">
+                <td class = "detailPageTableTitleCell">Aangemaakt op:</td>
+                <td class = "detailPageTableDataCell"><%= aanmaakdatum %></td>
+            </tr>           
+            <tr class = "detailPageTableRow">
+                <td class = "detailPageTableTitleCell">Laatst gewijziged op:</td>
+                <td class = "detailPageTableDataCell"><%= laatsteWijzigingen %></td>
+            </tr>
+        </table>
+
         
-        <H2>Bedrijf</H2>
-        <ul>
-            <li>Naam: <%= bedrijfsnaam %></li>
-            <li>Adres: <%= adres %></li>
-            <li>Actief in: <%= activiteiten %> </li>
-            <li>Wervend?: <%= aanwervend %> </li>
-            <li>Contact: <%= contactNaam %> via <%= contactEmail %> </li>
-        </ul>
-    
+        <div class = "detailPageSubTitle">Bedrijf</div>
         
+        <table class = "detailPageTable">
+            <tr class = "detailPageTableRow">
+                <td class = "detailPageTableTitleCell">Naam:</td>
+                <td class = "detailPageTableDataCell"><%= bedrijfsnaam %></td>
+            </tr>
+            <tr class = "detailPageTableRow">
+                <td class = "detailPageTableTitleCell">Adres:</td>
+                <td class = "detailPageTableDataCell"><%= adres %></td>
+            </tr>
+            <tr class = "detailPageTableRow">
+                <td class = "detailPageTableTitleCell">Actief in:</td>
+                <td class = "detailPageTableDataCell"><%= activiteiten %></td>
+            </tr>
+            <tr class = "detailPageTableRow">
+                <td class = "detailPageTableTitleCell">Wervend?:</td>
+                <td class = "detailPageTableDataCell"><%= aanwervend %></td>
+            </tr>
+            <tr class = "detailPageTableRow">
+                <td class = "detailPageTableTitleCell">Contact:</td>
+                <td class = "detailPageTableDataCell"><%= contactNaam %> via <%= contactEmail %></td>
+            </tr>
+        </table>
     </body>
 </html>

@@ -12,21 +12,33 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="CSS/Style.css">	
         <title>JSP Page</title>
     </head>
     <body>
-        <form name="ShowSearch" action="/Stageplaatsen/ShowSearch">
-            <input type="submit" value="Zoeken" name="ShowSearchButton" />
-        </form>
-        <h1>Hello World!</h1>
-        <table style="width:100%">
+         <div class="header">
+            <nav class="buttonRow">
+                <form name="ShowSearch" action="/Stageplaatsen/ShowSearch">
+                    <input type="submit" value="Zoeken" id="searchButton" name="ShowSearchButton" />
+                </form>
+                <div id="logo">Stageplaatsen</div>
+                <form name="ShowLogin" action="/Stageplaatsen/ShowLogin">
+                    <input type="submit" value="Login" id="logingButton" name="ShowLoginButton" />
+                </form>
+            </nav>
+            <hr>
+        </div> 
+        
+        <div id="pageTitle">Overzicht beschikbare stageplaatsen</div>
+        
+        <table class="OverviewTable">
             <tr>
-                <th>Titel</th>
-                <th>Bedrijfsnaam</th>
-                <th>Specialisatie</th>
-                <th>Periode</th>
-                <th>Aantal Plaatsen</th>
-                <th>Meer Informatie</th>
+                <th class="overviewTableHeaderCell">Titel</th>
+                <th class="overviewTableHeaderCell">Bedrijfsnaam</th>
+                <th class="overviewTableHeaderCell">Specialisatie</th>
+                <th class="overviewTableHeaderCell">Periode</th>
+                <th class="overviewTableHeaderCell">Aantal Plaatsen</th>
+                <th class="overviewTableHeaderCell">Meer Informatie</th>
                 
             </tr>
         <% 
@@ -43,13 +55,13 @@
              
             
         %>
-            <tr> 
-                <td> <%= titel%></a> </td>
-                <td> <%= bedrijfsnaam%> </td>
-                <td> <%= specialisatie%> </td>
-                <td> <%= periode%> </td>
-                <td> <%= plaatsen%> </td>
-                <td> <a href="/Stageplaatsen/ShowDetail?ID=<%= ID %>">Detail Pagina</a>  </td>
+            <tr class="overviewTableDataRow"> 
+                <td class="overviewTableCell"> <%= titel%></a> </td>
+                <td class="overviewTableCell"> <%= bedrijfsnaam%> </td>
+                <td class="overviewTableCell"> <%= specialisatie%> </td>
+                <td class="overviewTableCell"> <%= periode%> </td>
+                <td class="overviewTableCell"> <%= plaatsen%> </td>
+                <td class="overviewTableCell"> <button onclick="location.href='/Stageplaatsen/ShowDetail?ID=<%= ID %>'" type="button">Detail Pagina</button>  </td>
             </tr>
         <%
             }  
@@ -57,3 +69,4 @@
         </table>
     </body>
 </html>
+ 

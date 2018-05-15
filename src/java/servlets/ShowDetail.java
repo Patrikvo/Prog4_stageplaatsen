@@ -46,15 +46,13 @@ public class ShowDetail extends HttpServlet {
         } catch (NumberFormatException e) 
         {
             //do something! anything to handle the exception.
-            session.setAttribute("errorMessage", "Foutieve stageplaats-ID");
-            RequestDispatcher rd = request.getRequestDispatcher("/JSP/ErrorPage.jsp");
-            rd.forward(request, response);
+            redirectToErrorPage(request, response, "Foutieve stageplaats-ID");
         }
         
         
         Stageplaats stageplaats = DBFacadeEJB.getStageplaats(id);
         
-
+        if (stageplaats == null) { redirectToErrorPage(request, response, "Foutieve stageplaats-ID"); }
         
        
         session.setAttribute("stageplaats", stageplaats);
@@ -104,4 +102,11 @@ public class ShowDetail extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    
+    protected void redirectToErrorPage(HttpServletRequest request, HttpServletResponse response, String errorMessage) throws ServletException, IOException{
+        HttpSession session = request.getSession();
+                    session.setAttribute("errorMessage", errorMessage);
+            RequestDispatcher rd = request.getRequestDispatcher("/JSP/ErrorPage.jsp");
+            rd.forward(request, response);
+    }
 }

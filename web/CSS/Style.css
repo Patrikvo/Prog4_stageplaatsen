@@ -1,0 +1,126 @@
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body{
+	width:100%;
+	height: 100%;
+}
+
+.header{
+	display: flex;
+	flex-direction: column;
+
+	height: 10%;
+}
+
+
+.header .buttonRow {
+	display: flex;
+	flex-direction: row;	
+	justify-content: space-around;
+	
+}
+
+#indexBody{
+    width:50%;
+    height: 50%;
+    margin:auto;
+    text-align: center;
+}
+
+#logingButton{
+/*	width: 10%;*/
+	border-radius:12px;
+}
+
+#logingButton:hover{
+	border: 2px solid #4CAF50;
+	font-size: 18px;
+}
+
+
+#searchButton{
+/*	width: 10%;*/
+	border-radius:12px;
+}
+
+#searchButton:hover{
+	border: 2px solid #4CAF50;
+	font-size: 18px;
+}
+
+#logo{
+	font-size: 25px;
+}
+
+#pageTitle{
+	font-size: 30px;
+	text-align: center;
+	text-align: center;
+        margin-bottom: 20px;
+}
+
+.header hr{
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.OverviewTable{
+	width: 99%;
+	border: 1px solid black;
+	border-collapse: collapse;	
+	background-color: lightblue;
+}
+
+.overviewTableCell{
+	border: 1px solid black;
+	text-align: center;
+}
+
+.overviewTableHeaderCell{
+	border: 1px solid black;
+}
+
+.overviewTableDataRow:hover{
+	background-color: orange;
+	
+	
+}
+
+
+.detailPageSubTitle{
+	background-color:lightgrey;
+		font-size: 20px;
+		font-weight: bold;
+}
+
+.detailPageTable{
+		width: 95%;
+	border: 1px solid black;
+	border-collapse: collapse;	
+	background-color: lightblue;
+        margin: 20px 10px 20px 10px;
+}
+
+.detailPageTableRow{
+	
+}
+
+.detailPageTableTitleCell{
+	width: 15%;
+        border-bottom: 1px black dotted;
+}
+.detailPageTableDataCell{
+	border-bottom: 1px black dotted;
+}
+
+
+.overviewTableCell >button{
+    width: 100%;
+    height: 100;
+}
+
+
+
