@@ -21,6 +21,7 @@
                     <input type="submit" value="Terug naar Overzicht" id="searchButton" name="ShowOverviewButton" />
                 </form>
                 <div id="logo">Stageplaatsen</div>
+                
                 <form name="ShowLogin" action="/Stageplaatsen/ShowLogin">
                     <input type="submit" value="Login" id="logingButton" name="ShowLoginButton" />
                 </form>
