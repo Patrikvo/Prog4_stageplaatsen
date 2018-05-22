@@ -81,12 +81,27 @@ public class Bedrijf implements Serializable {
     @Column(name = "LaatsteWijziging")
     @Temporal(TemporalType.DATE)
     private Date laatsteWijziging;
-    @JoinColumn(name = "AdresID", referencedColumnName = "ID")
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Adres adresID;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "bedrijfID", fetch = FetchType.EAGER)
     private List<Stageplaats> stageplaatsList;
 
+    @Size(max = 255)
+    @Column(name = "Straat")
+    private String straat;
+    @Size(max = 255)
+    @Column(name = "Nummer")
+    private String nummer;
+    @Size(max = 255)
+    @Column(name = "Stad")
+    private String stad;
+    @Size(max = 255)
+    @Column(name = "Postcode")
+    private String postcode;
+    @Size(max = 255)
+    @Column(name = "Land")
+    private String land;
+    
+    
+    
     public Bedrijf() {
     }
 
@@ -165,13 +180,46 @@ public class Bedrijf implements Serializable {
         this.laatsteWijziging = laatsteWijziging;
     }
 
-    public Adres getAdresID() {
-        return adresID;
+public String getStraat() {
+        return straat;
     }
 
-    public void setAdresID(Adres adresID) {
-        this.adresID = adresID;
+    public void setStraat(String straat) {
+        this.straat = straat;
     }
+
+    public String getNummer() {
+        return nummer;
+    }
+
+    public void setNummer(String nummer) {
+        this.nummer = nummer;
+    }
+
+    public String getStad() {
+        return stad;
+    }
+
+    public void setStad(String stad) {
+        this.stad = stad;
+    }
+
+    public String getPostcode() {
+        return postcode;
+    }
+
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
+    }
+
+    public String getLand() {
+        return land;
+    }
+
+    public void setLand(String land) {
+        this.land = land;
+    }
+
 
     @XmlTransient
     public List<Stageplaats> getStageplaatsList() {

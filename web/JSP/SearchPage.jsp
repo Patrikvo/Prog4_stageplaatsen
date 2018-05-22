@@ -60,7 +60,7 @@
             for(Stageplaats sp : lijstStageplaatsen){
             String titel = sp.getTitel();
             String bedrijfsnaam = sp.getBedrijfID().getNaam();
-            String stad = sp.getBedrijfID().getAdresID().getStad();
+            String stad = sp.getBedrijfID().getStad();
             String specialisatie = sp.getSitueertID().getSpecialisatieID().getBeschrijving();
             String periode = sp.getPeriode();
             int plaatsen = sp.getAantalPlaatsen();

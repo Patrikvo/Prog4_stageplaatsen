@@ -8,36 +8,25 @@
  * Created: 10-mei-2018
  */
 
-/*Adres  */
 
-INSERT INTO Adres(ID, Straat, Nummer, Stad, Postcode, Land, AanmaakDatum, LaatsteWijziging) VALUES 
-(1, "astraat", "15", "2030", "astad", "aland", '2012-01-01', '2013-01-01');
-INSERT INTO Adres(ID, Straat, Nummer, Stad, Postcode, Land, AanmaakDatum, LaatsteWijziging) VALUES 
-(2, "bstraat", "15", "2030", "bstad", "bland", '2012-01-01', '2013-01-01');
-INSERT INTO Adres(ID, Straat, Nummer, Stad, Postcode, Land, AanmaakDatum, LaatsteWijziging) VALUES 
-(3, "cstraat", "15", "2030", "cstad", "cland", '2012-01-01', '2013-01-01');
-INSERT INTO Adres(ID, Straat, Nummer, Stad, Postcode, Land, AanmaakDatum, LaatsteWijziging) VALUES 
-(4, "dstraat", "15", "2030", "dstad", "dland", '2012-01-01', '2013-01-01');
-INSERT INTO Adres(ID, Straat, Nummer, Stad, Postcode, Land, AanmaakDatum, LaatsteWijziging) VALUES 
-(5, "estraat", "15", "2030", "estad", "eland", '2012-01-01', '2013-01-01');
 
 
 
 
 /* Tabel Bedrijf  */
 
-INSERT INTO Bedrijf(ID, Naam, AdresID, ContactNaam, ContactEmail, Activiteiten, Aanwervend, AanmaakDatum, LaatsteWijziging) VALUES 
-(1, "aNaam", 1, "aCont", "aEmail", "a_act", "a_aanw", '2012-01-01', '2013-01-01');
-INSERT INTO Bedrijf(ID, Naam, AdresID, ContactNaam, ContactEmail, Activiteiten, Aanwervend, AanmaakDatum, LaatsteWijziging) VALUES 
-(2, "bNaam", 2, "bCont", "bEmail", "b_act", "b_aanw", '2012-01-01', '2013-01-01');
+INSERT INTO Bedrijf(ID, Naam, ContactNaam, ContactEmail, Activiteiten, Aanwervend, AanmaakDatum, LaatsteWijziging, Straat, Nummer, Stad, Postcode, Land) VALUES 
+(1, "aNaam", "aCont", "aEmail", "a_act", "a_aanw", '2012-01-01', '2013-01-01', "astraat", "15", "astad", "2030", "aland");
+INSERT INTO Bedrijf(ID, Naam, ContactNaam, ContactEmail, Activiteiten, Aanwervend, AanmaakDatum, LaatsteWijziging, Straat, Nummer, Stad, Postcode, Land) VALUES 
+(2, "bNaam", "bCont", "bEmail", "b_act", "b_aanw", '2012-01-01', '2013-01-01', "bstraat", "16", "bstad", "2040", "bland");
 
 
 /* tabel student  */
 
-INSERT INTO Student(ID, Naam, AdresID, Telefoon, Email, AanmaakDatum, LaatsteWijziging) VALUES 
-(1, "aStudent", 3, "aTel", "aEmail", '2012-01-01', '2013-01-01');
-INSERT INTO Student(ID, Naam, AdresID, Telefoon, Email, AanmaakDatum, LaatsteWijziging) VALUES 
-(2, "bStudent", 4, "bTel", "bEmail", '2012-01-01', '2013-01-01');
+INSERT INTO Student(ID, Naam, Telefoon, Email, AanmaakDatum, LaatsteWijziging,Straat, Nummer, Stad, Postcode, Land) VALUES 
+(1, "aStudent", "aTel", "aEmail", '2012-01-01', '2013-01-01', "cstraat", "17", "cstad", "2050", "cland");
+INSERT INTO Student(ID, Naam, Telefoon, Email, AanmaakDatum, LaatsteWijziging,Straat, Nummer, Stad, Postcode, Land) VALUES 
+(2, "bStudent", "bTel", "bEmail", '2012-01-01', '2013-01-01', "dstraat", "18", "dstad", "2060", "dland");
 
 
 

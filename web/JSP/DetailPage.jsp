@@ -52,11 +52,11 @@
             
             
             String bedrijfsnaam = stageplaats.getBedrijfID().getNaam();
-            String adres = stageplaats.getBedrijfID().getAdresID().getStraat() + " " +
-                  stageplaats.getBedrijfID().getAdresID().getNummer() + " " +
-                    stageplaats.getBedrijfID().getAdresID().getPostcode() + " " +
-                    stageplaats.getBedrijfID().getAdresID().getStad() + " " +
-                    stageplaats.getBedrijfID().getAdresID().getLand();
+            String adres = stageplaats.getBedrijfID().getStraat() + " " +
+                  stageplaats.getBedrijfID().getNummer() + " " +
+                    stageplaats.getBedrijfID().getPostcode() + " " +
+                    stageplaats.getBedrijfID().getStad() + " " +
+                    stageplaats.getBedrijfID().getLand();
             String activiteiten = stageplaats.getBedrijfID().getActiviteiten();
             String aanwervend = stageplaats.getBedrijfID().getAanwervend();
             String contactNaam = stageplaats.getBedrijfID().getContactNaam();

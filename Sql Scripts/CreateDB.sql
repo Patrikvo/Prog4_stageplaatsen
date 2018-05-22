@@ -13,7 +13,6 @@ CREATE DATABASE IF NOT EXISTS StageplaatsenDB;
 USE StageplaatsenDB;
 
 SET FOREIGN_KEY_CHECKS=0;
-DROP TABLE IF EXISTS Adres;
 DROP TABLE IF EXISTS Bedrijf;
 DROP TABLE IF EXISTS Student;
 DROP TABLE IF EXISTS Specialisatie;
@@ -22,8 +21,20 @@ DROP TABLE IF EXISTS Stageplaats;
 DROP TABLE IF EXISTS Student_Stageplaats;
 SET FOREIGN_KEY_CHECKS=1;
 
-CREATE TABLE Adres (
+
+
+
+
+
+
+
+CREATE TABLE Bedrijf (
     ID int(10) NOT NULL AUTO_INCREMENT, 
+    Naam varchar(255) NOT NULL, 
+    ContactNaam varchar(255), 
+    ContactEmail varchar(255), 
+    Activiteiten varchar(1000), 
+    Aanwervend varchar(255), 
     Straat varchar(255), 
     Nummer varchar(255), 
     Stad varchar(255), 
@@ -36,35 +47,19 @@ CREATE TABLE Adres (
 
 
 
-
-
-
-CREATE TABLE Bedrijf (
-    ID int(10) NOT NULL AUTO_INCREMENT, 
-    Naam varchar(255) NOT NULL, 
-    AdresID int(10), 
-    ContactNaam varchar(255), 
-    ContactEmail varchar(255), 
-    Activiteiten varchar(1000), 
-    Aanwervend varchar(255), 
-    AanmaakDatum date NOT NULL, 
-    LaatsteWijziging date NOT NULL, 
-    PRIMARY KEY (ID), UNIQUE INDEX (ID),
-    FOREIGN KEY (AdresID) REFERENCES Adres(ID)
-);
-
-
-
 CREATE TABLE Student (
     ID int(10) NOT NULL AUTO_INCREMENT, 
     Naam varchar(500) NOT NULL, 
-    AdresID int(10), 
     Telefoon varchar(255), 
     Email varchar(255), 
+    Straat varchar(255), 
+    Nummer varchar(255), 
+    Stad varchar(255), 
+    Postcode varchar(255), 
+    Land varchar(255), 
     AanmaakDatum date NOT NULL, 
     LaatsteWijziging date NOT NULL, 
-    PRIMARY KEY (ID), UNIQUE INDEX (ID),
-    FOREIGN KEY (AdresID) REFERENCES Adres(ID)
+    PRIMARY KEY (ID), UNIQUE INDEX (ID)
 );
 
 

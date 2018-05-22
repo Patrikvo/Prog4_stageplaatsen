@@ -49,7 +49,7 @@ public class DatabaseFacadeEJB {
         String sql = "SELECT x FROM Stageplaats x WHERE x.titel LIKE '%" + titelPart +
                 "%' AND x.omschrijving LIKE '%" + omschrijvingPart +
                 "%' AND x.bedrijfID.naam LIKE '%" + bedrijfsnaamPart + 
-                "%' AND x.bedrijfID.adresID.stad LIKE '%" + stadPart + "%'";
+                "%' AND x.bedrijfID.stad LIKE '%" + stadPart + "%'";
         Query stageplaatsenQuery = em.createQuery(sql);
         
      /*   stageplaatsenQuery.setParameter("titelPart", wildcard + titelPart + wildcard)
