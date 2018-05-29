@@ -9,29 +9,88 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    
     <head>
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="CSS/Style.css">
-        <title>JSP Page</title>
+        <title>Stageplaatsen details</title>
+        
+        
+        <!-- ===== BOOTSTRAP ===== -->
+        
+        
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 		
+    	
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
     </head>
+    
+    
     <body>
-        <div class="header">
-            <nav class="buttonRow">
-                <form name="ShowOverview" action="/Stageplaatsen/ShowOverview">
-                    <input type="submit" value="Terug naar Overzicht" id="searchButton" name="ShowOverviewButton" />
-                </form>
-                <div id="logo">Stageplaatsen</div>
+       
+        
+       <!-- ===== HEADER ===== -->
+       
+       
+       <div class="container-fluid" >
+            <div class="row" >
+                    
+                <!-- LEFT BUTTON -->
+                    
+                <div class="col-sm-3">
+                    <p class="text-left">
+                        <form name="ShowOverview" action="/Stageplaatsen/ShowOverview">
+                            <button type="submit" value="Terug naar Overzicht" id="searchButton" name="ShowOverviewButton" class="btn btn-primary btn-lg">
+                                <span class="glyphicon glyphicon-triangle-left"></span> Terug naar Overzicht  
+                            </button>
+                        </form>
+                    </p>
+                </div>
                 
-                <form name="ShowLogin" action="/Stageplaatsen/ShowLogin">
-                    <input type="submit" value="Login" id="logingButton" name="ShowLoginButton" />
-                </form>
-            </nav>
+                <!-- CENTER LOGO -->
+			
+                <div id="logo" class="col-sm-6">
+                    <p class="text-center">
+                        <h1 class="text-center">Stageplaatsen</h1>
+                    </p>
+                </div>
+		
+                <!-- RIGHT BUTTON -->
+                
+                <div class="col-sm-3 text-right">
+<!--                <p class="text-right">
+                        <form name="ShowLogin" action="/Stageplaatsen/ShowLogin">
+                            <button type="submit" value="Log in" id="logingButton" name="ShowLoginButton" class="btn btn-primary">
+                                Log in <span class="glyphicon glyphicon-user"></span>
+                            </button>
+                        </form>	  
+                    </P>			-->	
+                </div>
+            </div>
             <hr>
-        </div> 
+	</div>	
 
         
-
-        <div id="pageTitle">Detail Pagina</div>
+        <!-- ===== BODY ===== -->
+        
+        
+        <!-- PAGE TITEL -->
+        
+        <div id="pageTitle" class="container-fluid">
+		<h2 class="text-center">Detail Pagina</h2>
+		<br/>
+		<br/>
+	</div>
+        
+                
+        <!-- Prepare data read from the database. -->        
         <% 
             Stageplaats stageplaats = (Stageplaats)session.getAttribute("stageplaats");
             
@@ -62,83 +121,91 @@
             String contactNaam = stageplaats.getBedrijfID().getContactNaam();
             String contactEmail = stageplaats.getBedrijfID().getContactEmail();
             int ID = stageplaats.getId();
-             // Titel, bedrijfsnaam, specialisatie, periode, interesse / plaatsen
-             
-            
         %>
         
-        <div class = "detailPageSubTitle">Stageplaats</DIV>
-        <table class = "detailPageTable">
-            <tr class = "detailPageTableRow">
-                <td class = "detailPageTableTitleCell">Titel:</td>
-                <td class = "detailPageTableDataCell"><%= titel%></td>
-            </tr>
-            <tr class = "detailPageTableRow">
-                <td class = "detailPageTableTitleCell">Omschrijving:</td>
-                <td class = "detailPageTableDataCell"><%= omschrijving%></td>
-            </tr>
-            <tr class = "detailPageTableRow">
-                <td class = "detailPageTableTitleCell">Aantal plaatsen:</td>
-                <td class = "detailPageTableDataCell"><%= plaatsen%></td>
-            </tr>
-            <tr class = "detailPageTableRow">
-                <td class = "detailPageTableTitleCell">Periode:</td>
-                <td class = "detailPageTableDataCell"><%= periode%></td>
-            </tr>
-            <tr class = "detailPageTableRow">
-                <td class = "detailPageTableTitleCell">Begeleiding:</td>
-                <td class = "detailPageTableDataCell"><%= begeleiding%></td>
-            </tr>
-            <tr class = "detailPageTableRow">
-                <td class = "detailPageTableTitleCell">Extra kennis vereist:</td>
-                <td class = "detailPageTableDataCell"><%= extraKennis %></td>
-            </tr>
-            <tr class = "detailPageTableRow">
-                <td class = "detailPageTableTitleCell">Voorzieningen:</td>
-                <td class = "detailPageTableDataCell"><%= Voorzieningen %></td>
-            </tr>
-            <tr class = "detailPageTableRow">
-                <td class = "detailPageTableTitleCell">Specialisatie:</td>
-                <td class = "detailPageTableDataCell"><%= specialisatie %></td>
-            </tr>
-            <tr class = "detailPageTableRow">
-                <td class = "detailPageTableTitleCell">Situeert zich in:</td>
-                <td class = "detailPageTableDataCell"><%= situeert%></td>
-            </tr>            
-            <tr class = "detailPageTableRow">
-                <td class = "detailPageTableTitleCell">Aangemaakt op:</td>
-                <td class = "detailPageTableDataCell"><%= aanmaakdatum %></td>
-            </tr>           
-            <tr class = "detailPageTableRow">
-                <td class = "detailPageTableTitleCell">Laatst gewijziged op:</td>
-                <td class = "detailPageTableDataCell"><%= laatsteWijzigingen %></td>
-            </tr>
-        </table>
+        <!-- CONTENT TABLE -->
+        
+        <div class="container-fluid">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover"  >
+                    <thead>
+                        <tr> 
+                            <th class="text-center" colspan="2">Stageplaats</th>
+                        </tr>
+                        <tr>
+                            <th class="text-left" colspan="2"><%= titel%></th>
+						
+                        </tr>
+                    </thead>
+                    <tbody id="myTable">
+                        <tr>
+                            <th class="text-left" width="20%">Omschrijving</th>
+                            <td class="text-left" width="80%"><%= omschrijving%></td>
+                        </tr>
+                        <tr>
+                            <th class="text-left" width="20%">Aantal plaatsen</th>
+                            <td class="text-left" width="80%"><%= plaatsen%></td>
+                        </tr>
+                        <tr>
+                            <th class="text-left" width="20%">Periode</th>
+                            <td class="text-left" width="80%"><%= periode%></td>
+                        </tr>
+                        <tr>
+                            <th class="text-left" width="20%">Begeleiding</th>
+                            <td class="text-left" width="80%"><%= begeleiding%></td>
+                        </tr>
+                        <tr>
+                            <th class="text-left" width="20%">Extra kennis vereist</th>
+                            <td class="text-left" width="80%"><%= extraKennis %></td>
+                        </tr>
+                        <tr>
+                            <th class="text-left" width="20%">Voorzieningen</th>
+                            <td class="text-left" width="80%"><%= Voorzieningen %></td>
+                        </tr>
+                        <tr>
+                            <th class="text-left" width="20%">Specialisatie</th>
+                            <td class="text-left" width="80%"><%= specialisatie %></td>
+                        </tr>
+                        <tr>
+                            <th class="text-left" width="20%">Situeert zich in</th>
+                            <td class="text-left" width="80%"><%= situeert%></td>
+                        </tr>
 
-        
-        <div class = "detailPageSubTitle">Bedrijf</div>
-        
-        <table class = "detailPageTable">
-            <tr class = "detailPageTableRow">
-                <td class = "detailPageTableTitleCell">Naam:</td>
-                <td class = "detailPageTableDataCell"><%= bedrijfsnaam %></td>
-            </tr>
-            <tr class = "detailPageTableRow">
-                <td class = "detailPageTableTitleCell">Adres:</td>
-                <td class = "detailPageTableDataCell"><%= adres %></td>
-            </tr>
-            <tr class = "detailPageTableRow">
-                <td class = "detailPageTableTitleCell">Actief in:</td>
-                <td class = "detailPageTableDataCell"><%= activiteiten %></td>
-            </tr>
-            <tr class = "detailPageTableRow">
-                <td class = "detailPageTableTitleCell">Wervend?:</td>
-                <td class = "detailPageTableDataCell"><%= aanwervend %></td>
-            </tr>
-            <tr class = "detailPageTableRow">
-                <td class = "detailPageTableTitleCell">Contact:</td>
-                <td class = "detailPageTableDataCell"><%= contactNaam %> via <%= contactEmail %></td>
-            </tr>
-        </table>
+                        <tr>
+                            <th colspan="2"></th>
+                        </tr>
+				
+                        <tr class="text-left">
+                            <th class="text-left" colspan="2">Bedrijf<th>
+                        </tr>
+                        <tr>
+                            <th class="text-left" width="20%">Naam</th>
+                            <td class="text-left" width="80%"><%= bedrijfsnaam %></td>
+                        </tr>
+                        <tr>
+                            <th class="text-left" width="20%">Adres</th>
+                            <td class="text-left" width="80%"><%= adres %></td>
+                        </tr>
+                        <tr>
+                            <th class="text-left" width="20%">Actief in</th>
+                            <td class="text-left" width="80%"><%= activiteiten %></td>
+                        </tr>
+                        <tr>
+                            <th class="text-left" width="20%">Wervend?</th>
+                            <td class="text-left" width="80%"><%= aanwervend %></td>
+                        </tr>
+                        <tr>
+                            <th class="text-left" width="20%">Contact</th>
+                            <td class="text-left" width="80%"><%= contactNaam %> via <a href="#"><%= contactEmail %></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="text-right" colspan="2">Aangemaakt op <%= aanmaakdatum %>, laatst gewijziged op <%= laatsteWijzigingen %></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+	</div>
+                        
     </body>
 </html>
