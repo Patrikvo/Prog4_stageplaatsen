@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAL;
 
 import java.io.Serializable;
@@ -25,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- *
+ * JPA Enity class Situeert
  * @author patrik
  */
 @Entity
@@ -38,67 +33,111 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Situeert implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
+    /*
+        JPA: Columns
+    */
+    
     @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "ID")
     private Integer id;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
     @Column(name = "Beschrijving")
     private String beschrijving;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "situeertID", fetch = FetchType.EAGER)
     private List<Stageplaats> stageplaatsList;
+    
     @JoinColumn(name = "SpecialisatieID", referencedColumnName = "ID")
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Specialisatie specialisatieID;
 
+    
+    /**
+     * Constructor
+     */    
     public Situeert() {
     }
 
-    public Situeert(Integer id) {
-        this.id = id;
-    }
-
-    public Situeert(Integer id, String beschrijving) {
-        this.id = id;
-        this.beschrijving = beschrijving;
-    }
-
+    /**
+     * JPA Column Getter for the field ID
+     * @return The field ID
+     */
     public Integer getId() {
         return id;
     }
 
+    /**
+     * JPA Column Setter for the field ID
+     * @param id new value for the field ID
+     */    
     public void setId(Integer id) {
         this.id = id;
     }
 
+    /**
+     * JPA Column Getter for the field beschrijving
+     * @return The string beschrijving
+     */    
     public String getBeschrijving() {
         return beschrijving;
     }
 
+    /**
+     * JPA Column Setter for the field beschrijving
+     * @param beschrijving new string for the field beschrijving
+     */    
     public void setBeschrijving(String beschrijving) {
         this.beschrijving = beschrijving;
     }
 
+    /**
+     * JPA Column Getter for the field stageplaatsList.
+     * These are all stageplaatsen from this Situeert.
+     * @return The List stageplaatsList
+     */    
     @XmlTransient
     public List<Stageplaats> getStageplaatsList() {
         return stageplaatsList;
     }
 
+    /**
+     * JPA Column Setter for the field stageplaatsList
+     * These are all stageplaatsen from this Situeert.
+     * @param stageplaatsList new List stageplaatsList
+     */    
     public void setStageplaatsList(List<Stageplaats> stageplaatsList) {
         this.stageplaatsList = stageplaatsList;
     }
 
+    /**
+     * JPA Column Getter for the field specialisatieID.
+     * This is the Specialisatie relevant to this Situeert.
+     * @return The Specialisatie specialisatieID
+     */    
     public Specialisatie getSpecialisatieID() {
         return specialisatieID;
     }
 
+    /**
+     * JPA Column Setter for the field specialisatieID
+     * This is the Specialisatie relevant to this Situeert.
+     * @param specialisatieID new Specialisatie
+     */    
     public void setSpecialisatieID(Specialisatie specialisatieID) {
         this.specialisatieID = specialisatieID;
     }
 
+    
+    /*
+        Supporting methodes
+    */
+    
     @Override
     public int hashCode() {
         int hash = 0;

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAL;
 
 import java.io.Serializable;
@@ -23,7 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- *
+ * JPA Enity class Specialisatie
  * @author patrik
  */
 @Entity
@@ -36,43 +31,62 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Specialisatie implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
+    /*
+        JPA: Columns
+    */
+    
     @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "ID")
     private Integer id;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
     @Column(name = "Beschrijving")
     private String beschrijving;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "specialisatieID", fetch = FetchType.EAGER)
     private List<Situeert> situeertList;
 
+    
+    /**
+     * Constructor
+     */    
     public Specialisatie() {
     }
 
-    public Specialisatie(Integer id) {
-        this.id = id;
-    }
 
-    public Specialisatie(Integer id, String beschrijving) {
-        this.id = id;
-        this.beschrijving = beschrijving;
-    }
-
+    /**
+     * JPA Column Getter for the field ID
+     * @return The field ID
+     */  
     public Integer getId() {
         return id;
     }
 
+    /**
+     * JPA Column Setter for the field ID
+     * @param id new value for the field ID
+     */    
     public void setId(Integer id) {
         this.id = id;
     }
 
+    /**
+     * JPA Column Getter for the field beschrijving
+     * @return The string beschrijving
+     */    
     public String getBeschrijving() {
         return beschrijving;
     }
 
+    /**
+     * JPA Column Setter for the field beschrijving
+     * @param beschrijving new string for the field beschrijving
+     */    
     public void setBeschrijving(String beschrijving) {
         this.beschrijving = beschrijving;
     }
@@ -86,6 +100,11 @@ public class Specialisatie implements Serializable {
         this.situeertList = situeertList;
     }
 
+    
+    /*
+        Supporting methodes
+    */    
+    
     @Override
     public int hashCode() {
         int hash = 0;

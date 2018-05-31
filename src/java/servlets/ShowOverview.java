@@ -23,6 +23,11 @@ import javax.servlet.http.HttpSession;
  */
 public class ShowOverview extends HttpServlet {
 
+
+    
+    @EJB
+    DatabaseFacadeEJB DBFacadeEJB;
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -32,10 +37,6 @@ public class ShowOverview extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
-    @EJB
-    DatabaseFacadeEJB DBFacadeEJB;
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        

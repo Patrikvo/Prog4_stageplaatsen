@@ -46,11 +46,7 @@
                     
                 <div class="col-sm-3">
                     <p class="text-left">
-                        <form name="ShowOverview" action="/Stageplaatsen/ShowOverview">
-                            <button type="submit" value="Terug naar Overzicht" id="searchButton" name="ShowOverviewButton" class="btn btn-primary btn-lg">
-                                <span class="glyphicon glyphicon-triangle-left"></span> Terug naar Overzicht  
-                            </button>
-                        </form>
+                        <button type="button" name="back" class="btn btn-primary btn-lg" onclick="history.back()"><span class="glyphicon glyphicon-triangle-left"></span> Terugkeren</button>
                     </p>
                 </div>
                 
@@ -108,19 +104,17 @@
             String specialisatie = stageplaats.getSitueertID().getSpecialisatieID().getBeschrijving();
             
             
-            
-            
             String bedrijfsnaam = stageplaats.getBedrijfID().getNaam();
-            String adres = stageplaats.getBedrijfID().getStraat() + " " +
-                  stageplaats.getBedrijfID().getNummer() + " " +
-                    stageplaats.getBedrijfID().getPostcode() + " " +
-                    stageplaats.getBedrijfID().getStad() + " " +
-                    stageplaats.getBedrijfID().getLand();
+            String adres =  stageplaats.getBedrijfID().getStraat() + " " +
+                            stageplaats.getBedrijfID().getNummer() + " " +
+                            stageplaats.getBedrijfID().getPostcode() + " " +
+                            stageplaats.getBedrijfID().getStad() + " " +
+                            stageplaats.getBedrijfID().getLand();
             String activiteiten = stageplaats.getBedrijfID().getActiviteiten();
             String aanwervend = stageplaats.getBedrijfID().getAanwervend();
             String contactNaam = stageplaats.getBedrijfID().getContactNaam();
             String contactEmail = stageplaats.getBedrijfID().getContactEmail();
-            int ID = stageplaats.getId();
+        /*    int ID = stageplaats.getId(); */
         %>
         
         <!-- CONTENT TABLE -->

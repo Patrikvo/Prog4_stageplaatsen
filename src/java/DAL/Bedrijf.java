@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAL;
 
 import java.io.Serializable;
@@ -30,7 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- *
+ * JPA Enity class Bedrijf
  * @author patrik
  */
 @Entity
@@ -49,187 +44,326 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Bedrijf implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
+    /*
+        JPA: Columns
+    */
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "ID")
     private Integer id;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
     @Column(name = "Naam")
     private String naam;
+    
     @Size(max = 255)
     @Column(name = "ContactNaam")
     private String contactNaam;
+    
     @Size(max = 255)
     @Column(name = "ContactEmail")
     private String contactEmail;
+    
     @Size(max = 1000)
     @Column(name = "Activiteiten")
     private String activiteiten;
+    
     @Size(max = 255)
     @Column(name = "Aanwervend")
     private String aanwervend;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "AanmaakDatum")
     @Temporal(TemporalType.DATE)
     private Date aanmaakDatum;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "LaatsteWijziging")
     @Temporal(TemporalType.DATE)
     private Date laatsteWijziging;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "bedrijfID", fetch = FetchType.EAGER)
     private List<Stageplaats> stageplaatsList;
 
     @Size(max = 255)
     @Column(name = "Straat")
     private String straat;
+    
     @Size(max = 255)
     @Column(name = "Nummer")
     private String nummer;
+    
     @Size(max = 255)
     @Column(name = "Stad")
     private String stad;
+    
     @Size(max = 255)
     @Column(name = "Postcode")
     private String postcode;
+    
     @Size(max = 255)
     @Column(name = "Land")
     private String land;
     
     
-    
+    /**
+     *  Constructor
+     */    
     public Bedrijf() {
+        this.id = null;
     }
+    
+    
+    /*
+        JPA: Columns Getters and Setters
+    */
 
-    public Bedrijf(Integer id) {
-        this.id = id;
-    }
-
-    public Bedrijf(Integer id, String naam, Date aanmaakDatum, Date laatsteWijziging) {
-        this.id = id;
-        this.naam = naam;
-        this.aanmaakDatum = aanmaakDatum;
-        this.laatsteWijziging = laatsteWijziging;
-    }
-
+    /**
+     * JPA Column Getter for the field ID
+     * @return The field ID
+     */
     public Integer getId() {
         return id;
     }
 
+    /**
+     * JPA Column Setter for the field ID
+     * @param id new value for the field ID
+     */    
     public void setId(Integer id) {
         this.id = id;
     }
 
+    /**
+     * JPA Column Getter for the field naam
+     * @return The string naam
+     */    
     public String getNaam() {
         return naam;
     }
 
+    /**
+     * JPA Column Setter for the field naam
+     * @param naam new string for the field naam
+     */    
     public void setNaam(String naam) {
         this.naam = naam;
     }
 
+    /**
+     * JPA Column Getter for the field contactNaam.
+     * @return The string contactNaam
+     */    
     public String getContactNaam() {
         return contactNaam;
     }
 
+    /**
+     * JPA Column Setter for the field contactNaam
+     * @param contactNaam new string for the field contactNaam
+     */    
     public void setContactNaam(String contactNaam) {
         this.contactNaam = contactNaam;
     }
 
+    /**
+     * JPA Column Getter for the field contactEmail.
+     * @return The string contactEmail
+     */    
     public String getContactEmail() {
         return contactEmail;
     }
 
+    /**
+     * JPA Column Setter for the field contactEmail
+     * @param contactEmail new string for the field contactEmail
+     */    
     public void setContactEmail(String contactEmail) {
         this.contactEmail = contactEmail;
     }
 
+
+    /**
+     * JPA Column Getter for the field activiteiten.
+     * @return The string activiteiten
+     */    
     public String getActiviteiten() {
         return activiteiten;
     }
 
+    /**
+     * JPA Column Setter for the field activiteiten
+     * @param activiteiten new string for the field activiteiten
+     */    
     public void setActiviteiten(String activiteiten) {
         this.activiteiten = activiteiten;
     }
 
+    /**
+     * JPA Column Getter for the field aanwervend.
+     * @return The string aanwervend
+     */    
     public String getAanwervend() {
         return aanwervend;
     }
 
+    /**
+     * JPA Column Setter for the field aanwervend
+     * @param aanwervend new string for the field aanwervend
+     */    
     public void setAanwervend(String aanwervend) {
         this.aanwervend = aanwervend;
     }
 
+    /**
+     * JPA Column Getter for the field aanmaakDatum.
+     * This is the date when this entity was created.
+     * @return The Date aanmaakDatum.
+     */    
     public Date getAanmaakDatum() {
         return aanmaakDatum;
     }
 
+    /**
+     * JPA Column Setter for the field aanmaakDatum
+     * This is the date when this entity was created.
+     * @param aanmaakDatum new Date for the field aanmaakDatum
+     */    
     public void setAanmaakDatum(Date aanmaakDatum) {
         this.aanmaakDatum = aanmaakDatum;
     }
 
+    /**
+     * JPA Column Getter for the field laatsteWijziging.
+     * This is the date when this entity was last changed.
+     * @return The Date laatsteWijziging.
+     */    
     public Date getLaatsteWijziging() {
         return laatsteWijziging;
     }
 
+    /**
+     * JPA Column Setter for the field laatsteWijziging
+     * This is the date when this entity last modified.
+     * @param laatsteWijziging new Date for the field laatsteWijziging
+     */    
     public void setLaatsteWijziging(Date laatsteWijziging) {
         this.laatsteWijziging = laatsteWijziging;
     }
 
-public String getStraat() {
+    /**
+     * JPA Column Getter for the field straat.
+     * @return The string straat
+     */    
+    public String getStraat() {
         return straat;
     }
 
+    /**
+     * JPA Column Setter for the field straat
+     * @param straat new string for the field straat
+     */    
     public void setStraat(String straat) {
         this.straat = straat;
     }
-
+    
+    /**
+     * JPA Column Getter for the field nummer.
+     * @return The string nummer
+     */
     public String getNummer() {
         return nummer;
     }
 
+    /**
+     * JPA Column Setter for the field nummer
+     * @param nummer new string for the field nummer
+     */    
     public void setNummer(String nummer) {
         this.nummer = nummer;
     }
 
+    /**
+     * JPA Column Getter for the field stad.
+     * @return The string stad
+     */    
     public String getStad() {
         return stad;
     }
 
+    /**
+     * JPA Column Setter for the field stad
+     * @param stad new string for the field stad
+     */    
     public void setStad(String stad) {
         this.stad = stad;
     }
 
+    /**
+     * JPA Column Getter for the field postcode.
+     * This is a string as only Belgian postal codes are completly numeric.
+     * @return The string postcode
+     */    
     public String getPostcode() {
         return postcode;
     }
 
+    /**
+     * JPA Column Setter for the field postcode
+     * This is a string as only Belgian postal codes are completly numeric.
+     * @param postcode new string for the field postcode
+     */    
     public void setPostcode(String postcode) {
         this.postcode = postcode;
     }
 
+    /**
+     * JPA Column Getter for the field land.
+     * @return The string land
+     */    
     public String getLand() {
         return land;
     }
 
+    /**
+     * JPA Column Setter for the field land
+     * @param land new string for the field land
+     */    
     public void setLand(String land) {
         this.land = land;
     }
 
-
+    /**
+     * JPA Column Getter for the field stageplaatsList.
+     * These are all stageplaatsen from this Bedrijf.
+     * @return The List stageplaatsList
+     */
     @XmlTransient
     public List<Stageplaats> getStageplaatsList() {
         return stageplaatsList;
     }
 
+    /**
+     * JPA Column Setter for the field stageplaatsList
+     * These are all stageplaatsen from this Bedrijf.
+     * @param stageplaatsList new List stageplaatsList
+     */    
     public void setStageplaatsList(List<Stageplaats> stageplaatsList) {
         this.stageplaatsList = stageplaatsList;
     }
 
+    
+    /*
+        Supporting methodes
+    */
+    
     @Override
     public int hashCode() {
         int hash = 0;

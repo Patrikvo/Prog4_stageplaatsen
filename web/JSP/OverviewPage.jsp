@@ -118,12 +118,12 @@
             List<Stageplaats> lijstStageplaatsen = (List<Stageplaats>)session.getAttribute("stageplaatsen");
             
             for(Stageplaats sp : lijstStageplaatsen){
-            String titel = sp.getTitel();
-            String bedrijfsnaam = sp.getBedrijfID().getNaam();
-            String specialisatie = sp.getSitueertID().getSpecialisatieID().getBeschrijving();
-            String periode = sp.getPeriode();
-            int plaatsen = sp.getAantalPlaatsen();
-            int ID = sp.getId();
+                String titel = sp.getTitel();
+                String bedrijfsnaam = sp.getBedrijfID().getNaam();
+                String specialisatie = sp.getSitueertID().getSpecialisatieID().getBeschrijving();
+                String periode = sp.getPeriode();
+                int plaatsen = sp.getAantalPlaatsen();
+                int ID = sp.getId();
         %>
                         <tr> 
                             <td class="text-center"> <%= titel%> </td>
@@ -144,7 +144,8 @@
         <script>
             
         <!-- TABLE FILTER CONTROL SCRIPT -->                    
-        
+/* source: https://www.w3schools.com/jquery/jquery_filters.asp */            
+
 $(document).ready(function(){
   $("#myInput").on("keyup", function() {
     var value = $(this).val().toLowerCase();
